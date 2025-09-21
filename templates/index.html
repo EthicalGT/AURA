@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Aura</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{% static 'img/logo.png'%}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="navbar">
+                <div class="logo">
+                    <img src="{% static 'img/logo.png' %}" alt="Aura">
+                    <h1>Au<span>ra</span></h1>
+                </div>
+                <div class="navigations">
+                    <ul>
+                        <li class="scan-trigger"><img src="{% static 'img/scan.svg' %}"> </li>
+                        <li><i class="fa-solid fa-bell icon"></i></li>
+                        <li><i class="fa-solid fa-circle-user icon"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="homebg-img">
+            <div class="homebg-content">
+                <h2>Verified & Secure</h2>
+                <p>Blockchain Traced Ayurvedic Herbs</p>
+            </div>
+        </div>
+        <div class="functionality-container">
+            <div class="qr-container"><i class="fa-solid fa-qrcode icon" onclick="scanOpener()"></i><b>Scan Product</b>
+            </div>
+            <div class="journey-container"><i class="fa-solid fa-route icon"></i><b>Track Progress</b></div>
+        </div>
+        <div class="herbs-container">
+            <h2>Verified Herbs</h2>
+            <div class="verified-herbs-boxes">
+                <div class="herbs-box">
+                    <img src="{% static 'img/specimens/tulsi.jpg'%}" alt="crop">
+                    <h3>Tulsi</h3>
+                    <p><strong>Botanical Name: </strong></p>
+                    <p><strong>Ingredients: </strong></p>
+                    <p><strong>Location: </strong></p>
+                    <p><strong>Accuracy: </strong></p>
+                    <i class="fa-solid fa-circle-info info-icon" title="See Info..."></i>
+                </div>
+                <div class="herbs-box">
+                    <img src="{% static 'img/specimens/tulsi.jpg'%}" alt="crop">
+                    <h3>Tulsi</h3>
+                    <p><strong>Botanical Name: </strong></p>
+                    <p><strong>Ingredients: </strong></p>
+                    <p><strong>Location: </strong></p>
+                    <p><strong>Accuracy: </strong></p>
+                    <i class="fa-solid fa-circle-info info-icon" title="See Info..."></i>
+                </div>
+                <div class="herbs-box">
+                    <img src="{% static 'img/specimens/tulsi.jpg'%}" alt="crop">
+                    <h3>Tulsi</h3>
+                    <p><strong>Botanical Name: </strong></p>
+                    <p><strong>Ingredients: </strong></p>
+                    <p><strong>Location: </strong></p>
+                    <p><strong>Accuracy: </strong></p>
+                    <i class="fa-solid fa-circle-info info-icon" title="See Info..."></i>
+                </div>
+                <div class="herbs-box">
+                    <img src="{% static 'img/specimens/tulsi.jpg'%}" alt="crop">
+                    <h3>Tulsi</h3>
+                    <p><strong>Botanical Name: </strong></p>
+                    <p><strong>Ingredients: </strong></p>
+                    <p><strong>Location: </strong></p>
+                    <p><strong>Accuracy: </strong></p>
+                    <i class="fa-solid fa-circle-info info-icon" title="See Info..."></i>
+                </div>
+            </div>
+        </div>
+        <div class="blockchain-security-container">
+            <h2><i class="fa-solid fa-shield-halved"></i>BlockChain Security</h2>
+            <div class="blockchain-flexbox">
+                <div class="blockchain-box">
+                    <h1>10K+</h1>
+                    <p>Verified Products</p>
+                </div>
+                <div class="blockchain-box">
+                    <h1>99.99%</h1>
+                    <p>Accuracy</p>
+                </div>
+                <div class="blockchain-box">
+                    <h1>24/7</h1>
+                    <p>Live Tracking</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-navbar">
+            <ul>
+                <li><i class="fa-solid fa-house footer-icon" title="Home"></i></li>
+                <li class="scan-trigger"><img src="{% static 'img/scan.svg' %}" title="Scan"></li>
+                <li><i class="fa-solid fa-route icon footer-icon" title="Track Progress"></i></li>
+                <li><i class="fa-solid fa-leaf footer-icon" title="Herbs"></i></li>
+            </ul>
+        </div>
+    </footer>
+
+    <center><video id="camera" autoplay playsinline></video>
+    </center>
+    <button id="capture" style="display:none;">Capture</button>
+    <button id="close" style="display:none;">Close</button>
+    <canvas id="snapshot" style="display:none; border:1px solid #ccc;"></canvas>
+    <img id="photo" alt="Captured image" style="display:none; margin-top:10px; width:400px;">
+
+    <script src="{% static 'js/script.js'%}"></script>
+
+</body>
+
+</html>
