@@ -1,3 +1,36 @@
+function getLocation(imageData) {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
+
+                console.log("Captured Image + Location:");
+                console.log("Image Data:", imageData);
+                console.log("Latitude:", lat, "Longitude:", lng);
+
+                fetch("/upload/", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "X-CSRFToken": getCookie("csrftoken")
+                    },
+                    body: JSON.stringify({
+                        image: imageData,
+                        latitude: lat,
+                        longitude: lng
+                    })
+                });
+            },
+            (error) => {
+                console.error("Location error:", error);
+            }
+        );
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+}
+
 const video = document.getElementById('camera');
 const captureBtn = document.getElementById('capture');
 const closeBtn = document.getElementById('close');
@@ -31,6 +64,8 @@ captureBtn.addEventListener('click', () => {
     photo.src = dataUrl;
     photo.style.display = 'block';
 
+    getLocation(dataUrl);
+
     if (stream) {
         stream.getTracks().forEach(track => track.stop());
     }
@@ -50,7 +85,6 @@ closeBtn.addEventListener('click', () => {
     closeBtn.style.display = 'none';
 });
 
-// Attach scanOpener to all scan buttons/icons
 document.querySelectorAll('.scan-trigger').forEach(el => {
     el.addEventListener('click', scanOpener);
 });

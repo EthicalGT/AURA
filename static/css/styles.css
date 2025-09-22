@@ -240,6 +240,79 @@ h3 {
     flex-direction: column;
 }
 
+main .herbs-container {
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.herbs-container h2 {
+    padding-bottom: 20px;
+}
+
+.herbs-container .herb-main-container {
+    display: flex;
+    gap: 5%;
+}
+
+.herbs-container .herb-main-container .herbs-details {
+    width: 40%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.herbs-details img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.herbs-info-container {
+    width: 50%;
+}
+
+.herbs-info-container .herb-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.herb-info #purity {
+    color: var(--color-emerald-green);
+}
+
+.herb-info h2 span {
+    color: var(--color-secondry-text);
+}
+
+.herbs-info-container .herb-additional-details {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.herb-additional-details .herb-add-box {
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.herbs-details .herb {
+    width: 50%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.herbs-data {
+    display: flex;
+    margin: 20px 0px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 footer {
     width: 100%;
     position: fixed;

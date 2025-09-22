@@ -46,43 +46,21 @@
         <div class="herbs-container">
             <h2>Verified Herbs</h2>
             <div class="verified-herbs-boxes">
+                {% for herb in herbs %}
                 <div class="herbs-box">
-                    <img src="{% static 'img/specimens/tulsi.jpg'%}" alt="crop">
-                    <h3>Tulsi</h3>
-                    <p><strong>Botanical Name: </strong></p>
-                    <p><strong>Ingredients: </strong></p>
-                    <p><strong>Location: </strong></p>
-                    <p><strong>Accuracy: </strong></p>
+                    <img src="{% static 'img/specimens/tulsi.jpg' %}" alt="crop">
+                    <h3>{{ herb.common_name }}</h3>
+                    <p><strong>Botanical Name: </strong>{{ herb.scientific_name }}</p>
+                    <p><strong>Ingredients: </strong>{{ herb.key_medicinal_compounds }}</p>
+                    <p><strong>Location: </strong>Maharshtra</p>
+                    <p><strong>Accuracy: </strong>99%</p>
                     <i class="fa-solid fa-circle-info info-icon" title="See Info..."></i>
                 </div>
-                <div class="herbs-box">
-                    <img src="{% static 'img/specimens/tulsi.jpg'%}" alt="crop">
-                    <h3>Tulsi</h3>
-                    <p><strong>Botanical Name: </strong></p>
-                    <p><strong>Ingredients: </strong></p>
-                    <p><strong>Location: </strong></p>
-                    <p><strong>Accuracy: </strong></p>
-                    <i class="fa-solid fa-circle-info info-icon" title="See Info..."></i>
-                </div>
-                <div class="herbs-box">
-                    <img src="{% static 'img/specimens/tulsi.jpg'%}" alt="crop">
-                    <h3>Tulsi</h3>
-                    <p><strong>Botanical Name: </strong></p>
-                    <p><strong>Ingredients: </strong></p>
-                    <p><strong>Location: </strong></p>
-                    <p><strong>Accuracy: </strong></p>
-                    <i class="fa-solid fa-circle-info info-icon" title="See Info..."></i>
-                </div>
-                <div class="herbs-box">
-                    <img src="{% static 'img/specimens/tulsi.jpg'%}" alt="crop">
-                    <h3>Tulsi</h3>
-                    <p><strong>Botanical Name: </strong></p>
-                    <p><strong>Ingredients: </strong></p>
-                    <p><strong>Location: </strong></p>
-                    <p><strong>Accuracy: </strong></p>
-                    <i class="fa-solid fa-circle-info info-icon" title="See Info..."></i>
-                </div>
+                {% empty %}
+                <p>No herbs found.</p>
+                {% endfor %}
             </div>
+
         </div>
         <div class="blockchain-security-container">
             <h2><i class="fa-solid fa-shield-halved"></i>BlockChain Security</h2>

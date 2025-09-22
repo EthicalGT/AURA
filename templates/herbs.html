@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Aura</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{% static 'img/logo.png'%}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="navbar">
+                <div class="logo">
+                    <img src="{% static 'img/logo.png' %}" alt="Aura">
+                    <h1>Au<span>ra</span></h1>
+                </div>
+                <div class="navigations">
+                    <ul>
+                        <li class="scan-trigger"><img src="{% static 'img/scan.svg' %}"> </li>
+                        <li><i class="fa-solid fa-bell icon"></i></li>
+                        <li><i class="fa-solid fa-circle-user icon"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="herbs-container">
+            <h2>Herb Analysis</h2>
+            <div class="herb-main-container">
+                <div class="herbs-details">
+                    <img src="{% static 'img/specimens/tulsi.jpg' %}">
+                </div>
+                <div class="herbs-info-container">
+                    <div class="herb-info">
+                        <h2>Premium Bramhi Extract</h2>
+                        <h2 id="purity">90%<span> Purity</span></h2>
+                    </div>
+                    <div class="herb-additional-details">
+                        <div class="herb-add-box">
+                            <strong>A+</strong>
+                            <p>Grade</p>
+                        </div>
+                        <div class="herb-add-box">
+                            <strong>92</strong>
+                            <p>Eco Score</p>
+                        </div>
+                        <div class="herb-add-box">
+                            <strong>99.1%</strong>
+                            <p>Authentic</p>
+                        </div>
+                    </div>
+                    <div class="herbs-data">
+                        <div class="herbs-data-box">
+                            <p>Origin</p>
+                            <b>Maharashtra</b>
+                        </div>
+                        <div class="herbs-data-box">
+                            <p>Used for</p>
+                            <b>Cold, Cough</b>
+                        </div>
+                        <div class="herbs-data-box">
+                            <p>Key Medicinal Compounds</p>
+                            <b>Glycyrrhizin, Liquiritin, Glabridin, Isoflavonoids</b>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>
