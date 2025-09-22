@@ -6,5 +6,5 @@ def home(request):
     data=herbs()
     return render(request, "index.html", {"herbs":data})
 
-//def herb(request):
-    //return render(request, "herbs.html")
+'''def herb(request):
+    return render(request, "herbs.html")'''
