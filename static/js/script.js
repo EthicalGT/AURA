@@ -34,24 +34,37 @@ function getLocation(imageData) {
 const video = document.getElementById('camera');
 const captureBtn = document.getElementById('capture');
 const closeBtn = document.getElementById('close');
+const switchBtn = document.getElementById('switch');
 const canvas = document.getElementById('snapshot');
 const photo = document.getElementById('photo');
 const main = document.querySelector('main');
 
 let stream;
+let currentFacingMode = "user"; // default: front camera
 
-async function scanOpener() {
+async function startCamera(facingMode = "user") {
     try {
-        stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        if (stream) {
+            stream.getTracks().forEach(track => track.stop());
+        }
+        stream = await navigator.mediaDevices.getUserMedia({
+            video: { facingMode: facingMode }
+        });
         video.srcObject = stream;
         main.style.display = 'none';
         video.style.display = 'block';
         captureBtn.style.display = 'inline-block';
         closeBtn.style.display = 'inline-block';
+        switchBtn.style.display = 'inline-block';
     } catch (err) {
         alert("Camera access denied or not available.");
         console.error(err);
     }
+}
+
+async function scanOpener() {
+    currentFacingMode = "user"; // reset to front when first opened
+    await startCamera(currentFacingMode);
 }
 
 captureBtn.addEventListener('click', () => {
@@ -73,6 +86,7 @@ captureBtn.addEventListener('click', () => {
     main.style.display = 'block';
     captureBtn.style.display = 'none';
     closeBtn.style.display = 'none';
+    switchBtn.style.display = 'none';
 });
 
 closeBtn.addEventListener('click', () => {
@@ -83,6 +97,12 @@ closeBtn.addEventListener('click', () => {
     main.style.display = 'block';
     captureBtn.style.display = 'none';
     closeBtn.style.display = 'none';
+    switchBtn.style.display = 'none';
+});
+
+switchBtn.addEventListener('click', async () => {
+    currentFacingMode = currentFacingMode === "user" ? "environment" : "user";
+    await startCamera(currentFacingMode);
 });
 
 document.querySelectorAll('.scan-trigger').forEach(el => {
